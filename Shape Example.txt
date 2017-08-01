@@ -1,0 +1,67 @@
+class Shape:
+
+    description = "Simple quadrilaterals"
+    author = "Bill Bulko"
+
+    def __init__(self,length,height):
+        self.x = length
+        self.y = height
+
+    def area(self):
+        return(self.x*self.y)
+
+    def perimeter(self):
+        return (2*self.x + 2*self.y)
+
+    def scaleSize(self,scale):
+        self.x = self.x*scale
+        self.y = self.y*scale
+        
+class Square(Shape):
+
+    def __init__(self,side):
+        self.x = side
+        self.y = side
+        self.s = side
+  
+def main():
+
+    # create a new rectangle of size 100 x 45
+    myRectangle = Shape(100,45)
+
+    # print the description
+    print(myRectangle.description)
+
+    # find the area of myRectangle
+    print(myRectangle.area())
+
+    # find the perimeter of myRectangle
+    print(myRectangle.perimeter())
+
+    # change the description of all rectangles
+    Shape.description = "Really, these are rectangles"
+
+    # make the rectangle 50% smaller
+    myRectangle.scaleSize(0.5)
+
+    # print the new area of the rectangle
+    print(myRectangle.area())
+
+    yourRectangle = Shape (30,200)
+
+    print ("myRectangle.x =", myRectangle.x)
+    print ("myRectangle.x =", myRectangle.y)
+    print ("yourRectangle.x =", yourRectangle.x)
+    print ("yourRectangle.y =", yourRectangle.y)
+#    print (myRectangle.s)            # this produces an error
+
+    print ("Area of myRectangle is:", myRectangle.area())
+    print ("Perimeter of myRectangle is:", myRectangle.perimeter())
+
+    mySquare = Square(50)
+    print ("Area of square =", mySquare.area())
+    print ("Perimeter of square =",mySquare.perimeter())
+
+    print (mySquare.s)
+
+main()

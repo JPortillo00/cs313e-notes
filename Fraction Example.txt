@@ -1,0 +1,33 @@
+class Fraction:
+
+    def __init__(self,top,bottom):
+        self.num = top
+        self.den = bottom
+
+    def __str__(self):
+        return (str(self.num) + "/" + str(self.den))
+
+    def __add__(self,other):
+        newNum = self.den*other.num + other.den*self.num
+        newDen = self.den * other.den
+        newFrac = Fraction(newNum,newDen)
+        return(newFrac)
+        
+
+def addFrac(f1,f2):
+    newNum = f1.den*f2.num + f2.den*f1.num
+    newDen = f1.den * f2.den
+    newFrac = Fraction(newNum,newDen)
+    return(newFrac)
+
+def main():
+
+    twoFifths = Fraction(2.0,5.0)
+    print ("two fifths = ", twoFifths)
+
+    threeFourths = Fraction(3.0,4.0)
+
+    sum = twoFifths + threeFourths
+    print(twoFifths, "+", threeFourths, "=", sum)
+
+main()
